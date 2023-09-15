@@ -1,9 +1,37 @@
-#Implement a recursive function to calculate the factorial of a given number
-def factorial(n):
-    return 1 if (n < 1) else n * factorial(n - 1)
- 
- 
-if __name__ == '__main__':
- 
-    n = 6
-    print(f'The Factorial of {n} is', factorial(n))
+
+
+# Define the Player class
+
+class Player:
+
+    def play(self):
+
+        print("The player is playing cricket.")
+
+# Define the Batsman class, derived from Player
+
+class Batsman(Player):
+
+    def play(self):
+
+        print("The batsman is batting.")
+
+# Define the Bowler class, derived from Player
+
+class Bowler(Player):
+
+    def play(self):
+
+        print("The bowler is bowling.")
+
+# Create objects of Batsman and Bowler classes
+
+batsman = Batsman()
+
+bowler = Bowler()
+
+# Call the play() method for each object
+
+batsman.play()
+
+bowler.play()

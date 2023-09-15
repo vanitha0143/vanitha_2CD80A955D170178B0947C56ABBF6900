@@ -1,21 +1,80 @@
-#Leap year 
 
-year = 2000
+class BankAccount:
 
-# To get year (integer input) from the user
-# year = int(input("Enter a year: "))
+    def __init__(self, account_number, account_holder_name, initial_balance=0.0):
 
-# divided by 100 means century year (ending with 00)
-# century year divided by 400 is leap year
-if (year % 400 == 0) and (year % 100 == 0):
-    print("{0} is a leap year".format(year))
+        self.__account_number = account_number
 
-# not divided by 100 means not a century year
-# year divided by 4 is a leap year
-elif (year % 4 ==0) and (year % 100 != 0):
-    print("{0} is a leap year".format(year))
+        self.__account_holder_name = account_holder_name
 
-# if not divided by both 400 (century year) and 4 (not century year)
-# year is not leap year
-else:
-    print("{0} is not a leap year".format(year))
+        self.__account_balance = initial_balance
+
+
+
+    def deposit(self, amount):
+
+        if amount > 0:
+
+            self.__account_balance += amount
+
+            print(f"Deposited ${amount:.2f} into account {self.__account_number}")
+
+        else:
+
+            print("Invalid deposit amount. Please deposit a positive amount.")
+
+
+
+    def withdraw(self, amount):
+
+        if amount > 0:
+
+            if self.__account_balance >= amount:
+
+                self.__account_balance -= amount
+
+                print(f"Withdrew ${amount:.2f} from account {self.__account_number}")
+
+            else:
+
+                print("Insufficient balance. Cannot withdraw.")
+
+        else:
+
+            print("Invalid withdrawal amount. Please withdraw a positive amount.")
+
+
+
+    def display_balance(self):
+
+        print(f"Account {self.__account_number} balance: ${self.__account_balance:.2f}")
+
+
+
+
+
+# Testing the BankAccount class
+
+if __name__ == "__main__":
+
+    # Create a BankAccount instance
+
+    account1 = BankAccount("123456", "John Doe", 1000.0)
+
+
+
+    # Deposit money
+
+    account1.deposit(500.0)
+
+
+
+    # Withdraw money
+
+    account1.withdraw(200.0)
+
+
+
+    # Display balance
+
+    account1.display_balance()
